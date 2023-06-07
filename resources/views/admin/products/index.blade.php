@@ -6,6 +6,12 @@
         <div class="text-center m-5">
             <a class="btn btn-success" href="{{ route('admin.products.create') }}">Crea nuovo characters</a>
         </div>
+
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
         <div class="row">
             @foreach ($products as $product)
                 <div class="card text-bg-dark mb-3 col-4 shadow">

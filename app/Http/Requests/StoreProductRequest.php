@@ -25,8 +25,8 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'title' => 'required|max:50|min:3',
-            'description' => 'required',
-            'price' => 'required',
+            'description' => 'required|min:10',
+            'price' => 'required|numeric|min:5|max:99|regex:/^\d+(\.\d{2})?$/',
             'image' => 'required|max:255|min:10'
         ];
     }

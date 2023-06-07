@@ -44,8 +44,8 @@ class ProductController extends Controller
         $newProduct = new Product();
         $newProduct->fill($form_data);
         $newProduct->save();
-        return redirect()->route('admin.products.show', $newProduct->id)->with('message', "Il comic
-        {$newProduct->id} è stato aggiunto correttamente");
+        return redirect()->route('admin.products.show', $newProduct->id, $newProduct->name)->with('message', "The Book
+        {$newProduct->name} has been added successfully");
     }
 
     /**
@@ -95,7 +95,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('home')->with('message-delete', "Hai cancellato
-        correttamente il comic {$product->id}");
+        return redirect()->route('admin.products.index')->with('message', "$product->title deleted successfully.");
     }
 }
