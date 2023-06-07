@@ -17,16 +17,16 @@
                         <p class="card-text">{{ $product->title }}</p>
                         <p class="card-text">price: {{ $product->price }}</p>
 
-                        {{-- <div class="d-flex justify-content-between align-items-center">
-                            <a class="m-1" href="{{ route('admin.characters.show', $character->id) }}"><button
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a class="m-1" href="{{ route('admin.products.show', $product->id) }}"><button
                                     class="btn btn-warning"> Show</button></a>
 
-                            <form action="{{ route('admin.characters.destroy', $character->id) }}" method="POST">
+                            <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger m-1" type="submit">Delete</button>
                             </form>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             @endforeach
