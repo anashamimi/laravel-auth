@@ -12,9 +12,12 @@
             <img class="img-fluid" src="{{ $product->image }}" alt="{{ $product->title }}">
         </div>
 
-        <div class="p-5">
+        <div class="p-5 d-flex align-items-center">
             <a class="m-1" href="{{ route('admin.products.edit', $product->id) }}"><button
-            class="btn btn-warning"> Edit</button></a>
+            class="btn btn-success"> Edit</button></a>
+
+            <a class="m-1" href="{{ route('admin.products.index') }}"><button
+                class="btn btn-warning"> Back</button></a>
         </div>
 
     </div>

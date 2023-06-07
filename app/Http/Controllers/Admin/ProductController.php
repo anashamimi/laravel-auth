@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -35,7 +37,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
 
         $form_data = $request->all();
@@ -49,7 +51,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Comic  $comic
+     * @param  \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product)
@@ -60,7 +62,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Comic  $comic
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
     public function edit(Product $product)
@@ -72,23 +74,22 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Comic  $comic
+     * @param  \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProductRequest $request, Product $product)
     {
-        $form_data = $request->all();
-
-        $product = Product::findOrFail($id);
+        $form_data = $request->validated();
         $product->update($form_data);
-        return redirect()->route('admin.products.show', $product->$id);
+        $products = Product::all();
+        return view('admin.products.index', compact('products'));
 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Comic  $comic
+     * @param  \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)

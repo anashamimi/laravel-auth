@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container text-white">
+<div class="container">
 
     <h1>Create Characters</h1>
-    <form action="{{ route('admin.characters.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
-            <label for="name">Name</label>
-            <input type="text" class="form-control @error('name') is-invali
+            <label for="title">Title</label>
+            <input type="text" class="form-control @error('title') is-invali
 
-            @enderror" name="name" id="name" >
+            @enderror" name="title" id="title" >
 
-            @error('name')
+            @error('title')
             <div class="invalid-feedback">
                 {{$message}}
             </div>
@@ -20,12 +20,12 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="level">Level</label>
-            <input type="text" class="form-control @error('level') is-invali
+            <label for="price">Price</label>
+            <input type="text" class="form-control @error('price') is-invali
 
-            @enderror" name="level" id="level" >
+            @enderror" name="price" id="price" >
 
-            @error('level')
+            @error('price')
             <div class="invalid-feedback">
                  {{$message}}
             </div>
@@ -33,12 +33,12 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="class">Class</label>
-            <input type="text" class="form-control @error('class') is-invali
+            <label for="description">Description</label>
+            <textarea name="description" id="description" rows="5" class="form-control @error('description') is-invali
 
-            @enderror" name="class" id="class" >
+            @enderror" name="description" id="description" ></textarea>
 
-            @error('class')
+            @error('description')
             <div class="invalid-feedback">
                  {{$message}}
             </div>
@@ -46,64 +46,12 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="race">Race</label>
-            <input type="text" class="form-control @error('race') is-invali
+            <label for="image">Image</label>
+            <input type="text" class="form-control @error('image') is-invali
 
-            @enderror" name="race" id="race" >
+            @enderror" name="image" id="image" >
 
-            @error('race')
-            <div class="invalid-feedback">
-                 {{$message}}
-            </div>
-
-            @enderror
-        </div>
-        <div class="mb-3">
-            <label for="lifepoint">Lifepoint</label>
-            <input type="text" class="form-control @error('lifepoint') is-invali
-
-            @enderror" name="lifepoint" id="lifepoint" >
-
-            @error('lifepoint')
-            <div class="invalid-feedback">
-                 {{$message}}
-            </div>
-
-            @enderror
-        </div>
-        <div class="mb-3">
-            <label for="strength">Strength</label>
-            <input type="text" class="form-control @error('strength') is-invali
-
-            @enderror" name="strength" id="strength" >
-
-            @error('strength')
-            <div class="invalid-feedback">
-                 {{$message}}
-            </div>
-
-            @enderror
-        </div>
-        <div class="mb-3">
-            <label for="agility">Agility</label>
-            <input type="text" class="form-control @error('agility') is-invali
-
-            @enderror" name="agility" id="agility" >
-
-            @error('agility')
-            <div class="invalid-feedback">
-                 {{$message}}
-            </div>
-
-            @enderror
-        </div>
-        <div class="mb-3">
-            <label for="main_weapon">Main weapon</label>
-            <input type="text" class="form-control @error('main_weapon') is-invali
-
-@enderror" name="main_weapon" id="main_weapon" >
-
-            @error('main_weapon')
+            @error('image')
             <div class="invalid-feedback">
                  {{$message}}
             </div>

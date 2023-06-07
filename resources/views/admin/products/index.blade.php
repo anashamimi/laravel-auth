@@ -19,7 +19,7 @@
 
                         <div class="d-flex justify-content-between align-items-center">
                             <a class="m-1" href="{{ route('admin.products.show', $product->id) }}"><button
-                                    class="btn btn-warning"> Show</button></a>
+                                    class="btn btn-success"> Show</button></a>
 
                             <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST">
                                 @csrf
