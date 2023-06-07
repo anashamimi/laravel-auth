@@ -44,11 +44,17 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                    <label class="form-check-label" for="remember">
+                                    <label class="form-check-label pb-3" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
                                 </div>
+                                @if (Route::has('password.request'))
+                                <a class="text-dark" href="{{ route('password.request') }}">
+                                    {{ __('You forgot password?') }}
+                                </a>
+                                @endif
                             </div>
+
                         </div>
 
                         <div class="mb-4 row mb-0">
@@ -57,12 +63,11 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
+                                <a href="{{route('register')}}" class="text-primary px-3">
+                                    {{ __('or create an account') }}
                                 </a>
-                                @endif
                             </div>
+
                         </div>
                     </form>
                 </div>
